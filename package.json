@@ -1,0 +1,27 @@
+{
+  "name": "audit-trail",
+  "version": "0.1.2",
+  "description": "This is the official Javascript package for audit trail for TM30 global",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter nyan"
+  },
+  "keywords": [
+    "audit",
+    "trail",
+    "audit",
+    "trail",
+    "tm30"
+  ],
+  "author": "TM30",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.1",
+    "uuid": "^3.3.3"
+  },
+  "dependencies": {
+    "@elastic/elasticsearch": "^7.3.0",
+    "dotenv": "^8.1.0"
+  }
+}
