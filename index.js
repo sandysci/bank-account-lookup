@@ -1,49 +1,43 @@
 "use strict";
-const repository  = new (require("./src/ElasticRepository"))();
+const Joi = require("@hapi/joi");
 
 
+/**
+ * This validate method relies heavily on the @hapi/Joi package
+ * @param schema
+ * @param payload
+ */
+exports.validate = (schema, payload) => {
 
-let trail = async (message, action, meta = {}) => {
-    let d = new Date();
-    d.setTime(d.getTime() - new Date().getTimezoneOffset() * 60 * 1000);
-    const payload = {
-        service: process.env.APP_NAME || "audit-trail",
-        message,
-        action,
-        ...meta,
-        timestamp: d.toISOString()
-    };
+    schema = Joi.object(schema);
+    const {error, value} = schema.validate( payload,{
+        allowUnknown: true,
+    });
 
-    // console.log("Payload to elastic search", payload);
-
-    return repository.create(payload);
+    if(error)
+        return error.details[0].message.replace(/['"]/g, '');
+    return null;
 };
 
-
-let customQuery = async (body) => {
-    return await repository.search(body);
-};
-
-let fetch = async (query, from, size, keyword) => {
-    let body = {query: {bool:{}}}, must = [];
-    must = repository.appendMultiplePropertyMatch(query);
-    if (from && size) {
-        body.from = from;
-        body.size = size;
+/**
+ * This method formats a Nigerian Phone number
+ * @param phoneNumber
+ * @return "+234xxxxxxxxx"|undefined|array
+ */
+exports.formatPhoneNumber = (phoneNumber) => {
+    if(!phoneNumber)
+        return undefined;
+    //if phone number is empty return undefined
+    if(Array.isArray(phoneNumber)){
+        return phoneNumber.map(phone => {
+           return require("./src/PhoneNumber").format(phone);
+        });
+    }else{
+        return require("./src/PhoneNumber").format(phoneNumber);
     }
-    body.query.bool = {
-        must
-    };
-
-    return await repository.search(body);
 };
 
-let deleteIndex = async () => {
-    return repository.deleteIndex();
-};
-module.exports = {
-    trail,
-    fetch,
-    customQuery,
-    deleteIndex
-};
+
+
+
+

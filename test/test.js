@@ -1,38 +1,60 @@
 "use strict";
-require("dotenv").config();
-const expect = require('chai').expect;
-const audit = require("../index");
-describe('# Test Save into elasticsearch', function () {
-    it('should save the payload', async function () {
-        const payload = await audit.trail("An Activity Occurred", "Activity");
-        expect(payload.statusCode).to.be.equal(201);
-        expect(payload.body._index).to.be.equal(process.env.AUDIT_INDEX);
-        expect(payload.body.result).to.be.equal("created");
-        console.log(JSON.stringify(payload));
+require("dotenv").config({});
+const Joi = require("@hapi/joi");
+const utils = require("../index");
+describe('# Test Validate data',  () => {
+    it('should return a validation error', function () {
+        const schema = {
+            name: Joi.string().required()
+        };
+
+        const validationResponse = utils.validate(schema, {});
+        expect(validationResponse).not.toBeNull();
+        console.log("validationResponse", validationResponse);
+    });
+
+
+    it('should return null - Validation passed', function () {
+        const schema = {
+            name: Joi.string().required()
+        };
+        const validationResponse = utils.validate(schema, {
+            name: "Name"
+        });
+        expect(validationResponse).toBeNull();
+        console.log("validationResponse", validationResponse);
     });
 });
 
 
-describe('# Test Fetch trail from ES', function () {
-    it.only('should fetch the payload using a required query', async function () {
-        const payload = await audit.fetch({}, 0, 50);
-        expect(payload.data).to.be.an("array");
-        expect(payload.data.length).to.be.equal(payload.total);
-        console.log(JSON.stringify(payload));
+
+describe('# Test Format Phone Number',  () => {
+    it('should return undefined for incorrect or empty value', function () {
+       let phoneNumber = undefined;
+       phoneNumber = utils.formatPhoneNumber(phoneNumber);
+       expect(phoneNumber).toBeUndefined();
+    });
+
+    it('should return an array of undefined for incorrect or empty value', function () {
+        let phoneNumber = [undefined, undefined, undefined];
+        phoneNumber = utils.formatPhoneNumber(phoneNumber);
+        phoneNumber = phoneNumber.filter(Boolean);
+        console.log("PhoneNumber", phoneNumber);
+        expect(phoneNumber.length).toBe(0);
+    });
+
+    it('should return an formatted phone number', function () {
+        let phoneNumber = "08023457890";
+        phoneNumber = utils.formatPhoneNumber(phoneNumber);
+        console.log("PhoneNumber", phoneNumber);
+        expect(phoneNumber).toBe("2348023457890");
     });
 
 
-    it('should fetch the payload using a custom query', async function () {
-        const query = {
-            "query": {"bool": {}},
-            "from": 0,
-            "size": "10",
-            "sort": [{"timestamp": {"order": "desc", "unmapped_type": "date"}}]
-        };
-        const payload = await audit.customQuery(query);
-        // console.log("Payload", JSON.stringify(payload), payload.data.length, payload.total);
-        //start assert
-        expect(payload.data).to.be.an("array");
-        expect(payload.data.length).to.be.equal(payload.total);
+    it('should return an array of formatted phone number', function () {
+        let phoneNumber = ["08023457890", "08023457846", "08023457811"];
+        phoneNumber = utils.formatPhoneNumber(phoneNumber);
+        console.log("PhoneNumber", phoneNumber);
+        expect(phoneNumber.length).toBe( 3);
     });
 });

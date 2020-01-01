@@ -1,27 +1,30 @@
 {
-  "name": "audit-trail",
-  "version": "0.1.2",
-  "description": "This is the official Javascript package for audit trail for TM30 global",
+  "name": "tm-utils",
+  "version": "0.1.0",
+  "description": "This is the accumulated reused functions for TM30 global",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter nyan"
+    "test": "jest --watchAll --verbose --env=node"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "keywords": [
     "audit",
-    "trail",
-    "audit",
-    "trail",
+    "tm-utils",
+    "utils",
+    "tm",
     "tm30"
   ],
   "author": "TM30",
   "license": "ISC",
   "devDependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^6.2.1",
     "uuid": "^3.3.3"
   },
   "dependencies": {
-    "@elastic/elasticsearch": "^7.3.0",
-    "dotenv": "^8.1.0"
+    "@hapi/joi": "^16.1.8",
+    "dotenv": "^8.1.0",
+    "jest": "^24.9.0",
+    "lodash": "^4.17.15"
   }
 }
