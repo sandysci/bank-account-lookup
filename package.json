@@ -1,5 +1,5 @@
 {
-  "name": "tm-utils",
+  "name": "@tm30/utils",
   "version": "0.1.1",
   "description": "This is the accumulated reused functions for TM30 global",
   "main": "index.js",
