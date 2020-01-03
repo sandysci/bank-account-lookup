@@ -21,6 +21,12 @@ module.exports = {
             CREATED: `${prefix}product_created`,
             UPDATED: `${prefix}product_updated`,
             DELETED: `${prefix}product_deleted`
+        },
+        INVOICE: {
+            CREATED: `${prefix}invoice_created`,
+            UPDATED: `${prefix}invoice_updated`,
+            DELETED: `${prefix}invoice_deleted`,
+            PAID: `${prefix}invoice_paid`,
         }
     },
     QUEUES: {}
