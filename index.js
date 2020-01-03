@@ -39,5 +39,6 @@ exports.formatPhoneNumber = (phoneNumber) => {
 
 
 
-
-
+module.exports = {
+    Constants: require("./src/Constants")
+};
