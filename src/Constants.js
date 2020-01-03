@@ -1,6 +1,6 @@
 "use strict";
 
-
+const prefix = "tm-microservices.";
 module.exports = {
     ROLE: {
         ADMIN: "admin",
@@ -13,14 +13,14 @@ module.exports = {
     SECRET_DEFAULT: "default",
     EVENTS: {
         USER:{
-            CREATED: "user_created",
-            UPDATED: "user_updated",
-            DELETED: "user_deleted"
+            CREATED: `${prefix}user_created`,
+            UPDATED: `${prefix}user_updated`,
+            DELETED: `${prefix}user_deleted`
         },
         PRODUCT: {
-            CREATED: "product_created",
-            UPDATED: "product_updated",
-            DELETED: "product_deleted"
+            CREATED: `${prefix}product_created`,
+            UPDATED: `${prefix}product_updated`,
+            DELETED: `${prefix}product_deleted`
         }
     },
     QUEUES: {}
