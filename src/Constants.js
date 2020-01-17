@@ -12,7 +12,7 @@ module.exports = {
     CLIENT_DEFAULT: "default",
     SECRET_DEFAULT: "default",
     EVENTS: {
-        USER:{
+        USER: {
             CREATED: `${prefix}user_created`,
             UPDATED: `${prefix}user_updated`,
             DELETED: `${prefix}user_deleted`

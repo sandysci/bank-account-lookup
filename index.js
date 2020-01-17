@@ -7,7 +7,7 @@ const Joi = require("@hapi/joi");
  * @param schema
  * @param payload
  */
-exports.validate = (schema, payload) => {
+function validate(schema, payload) {
 
     schema = Joi.object(schema);
     const {error, value} = schema.validate( payload,{
@@ -17,14 +17,14 @@ exports.validate = (schema, payload) => {
     if(error)
         return error.details[0].message.replace(/['"]/g, '');
     return null;
-};
+}
 
 /**
  * This method formats a Nigerian Phone number
  * @param phoneNumber
  * @return "+234xxxxxxxxx"|undefined|array
  */
-exports.formatPhoneNumber = (phoneNumber) => {
+function formatPhoneNumber(phoneNumber){
     if(!phoneNumber)
         return undefined;
     //if phone number is empty return undefined
@@ -35,10 +35,12 @@ exports.formatPhoneNumber = (phoneNumber) => {
     }else{
         return require("./src/PhoneNumber").format(phoneNumber);
     }
-};
+}
 
 
 
 module.exports = {
-    Constants: require("./src/Constants")
+    Constants: require("./src/Constants"),
+    formatPhoneNumber,
+    validate
 };
