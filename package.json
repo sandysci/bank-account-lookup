@@ -1,6 +1,6 @@
 {
   "name": "tm-utils",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "This is the accumulated reused functions for TM30 global",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,6 @@
     "testEnvironment": "node"
   },
   "keywords": [
-    "audit",
     "tm-utils",
     "utils",
     "tm",
@@ -18,11 +17,7 @@
   ],
   "author": "TM30",
   "license": "ISC",
-  "devDependencies": {
-    "uuid": "^3.3.3"
-  },
   "dependencies": {
-    "@hapi/joi": "^16.1.8",
     "dotenv": "^8.1.0",
     "jest": "^24.9.0",
     "lodash": "^4.17.15"

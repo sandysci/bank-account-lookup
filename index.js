@@ -1,23 +1,4 @@
 "use strict";
-const Joi = require("@hapi/joi");
-
-
-/**
- * This validate method relies heavily on the @hapi/Joi package
- * @param schema
- * @param payload
- */
-function validate(schema, payload) {
-
-    schema = Joi.object(schema);
-    const {error, value} = schema.validate( payload,{
-        allowUnknown: true,
-    });
-
-    if(error)
-        return error.details[0].message.replace(/['"]/g, '');
-    return null;
-}
 
 /**
  * This method formats a Nigerian Phone number
@@ -40,7 +21,5 @@ function formatPhoneNumber(phoneNumber){
 
 
 module.exports = {
-    Constants: require("./src/Constants"),
-    formatPhoneNumber,
-    validate
+    formatPhoneNumber
 };
