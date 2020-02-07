@@ -21,5 +21,8 @@ function formatPhoneNumber(phoneNumber){
 
 
 module.exports = {
-    formatPhoneNumber
+    formatPhoneNumber,
+    auths: require("./src/auths"),
+    graylog: require("./src/graylog"),
+    logging: require("./src/logging")
 };
