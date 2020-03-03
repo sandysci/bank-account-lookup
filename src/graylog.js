@@ -2,13 +2,16 @@
 const graylog = require("graylog2");
 
 if(!process.env.GRAYLOG_HOST || !process.env.GRAYLOG_PORT){
-    console.error("Graylog PORT/HOST is required");
-    return;
+    console.error("Graylog PORT/HOST is Missing, Using default..........");
 }
+const host = process.env.GRAYLOG_HOST || "127.0.0.1";
+const port = process.env.GRAYLOG_PORT || "12201";
+
+
 
 const logger = new graylog.graylog({
     servers: [
-        { 'host': process.env.GRAYLOG_HOST, port: process.env.GRAYLOG_PORT },
+        { host, port},
     ],
     facility: process.env.APP_NAME || Math.random().toString(),
     bufferSize: 1350
@@ -26,3 +29,4 @@ logger.on('error', function (error) {
 });
 
 global.graylog = logger;
+module.exports = logger;

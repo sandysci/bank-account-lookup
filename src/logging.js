@@ -1,14 +1,33 @@
 "use strict";
-require("./graylog");
+const graylog = require("./graylog");
 
 const logger = (error, stack, additionalMessage, isCritical = false) => {
     console.log(error, stack, additionalMessage, isCritical);
-    if (process.env.NODE_ENV != "development") {
-        if(isCritical)
-            graylog.critical(error, stack, additionalMessage, new Date());
-        else
-            graylog.error(error, stack, additionalMessage, new Date());
+    if(graylog){
+        if (process.env.NODE_ENV != "development") {
+            if(isCritical)
+                graylog.critical(error, stack, additionalMessage, new Date());
+            else
+                graylog.error(error, stack, additionalMessage, new Date());
 
+        }
+    }else{
+        console.log("No Graylog", error, stack, additionalMessage, isCritical);
+    }
+
+};
+
+const logException = (error,payload, isCritical = false) => {
+    if(graylog){
+        if (process.env.NODE_ENV != "development") {
+            if(isCritical)
+                graylog.critical(e.message, e.stack, payload, new Date());
+            else
+                graylog.error(error, e.stack, payload, new Date());
+
+        }
+    }else{
+        console.log("No Graylog", error, stack, additionalMessage, isCritical);
     }
 
 };
@@ -35,6 +54,7 @@ process.on("unhandledRejection",(ex) => {
 });
 
 global.logger = logger;
+global.logException = logException;
 
 global.resolveAxiosError = error => {
     let formattedError;

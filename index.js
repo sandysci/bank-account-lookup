@@ -22,7 +22,7 @@ function formatPhoneNumber(phoneNumber){
 
 module.exports = {
     formatPhoneNumber,
-    auths: require("./src/auths"),
+    // auths: require("./src/auths"),
     graylog: require("./src/graylog"),
     logging: require("./src/logging")
 };
