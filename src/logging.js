@@ -17,17 +17,17 @@ const logger = (error, stack, additionalMessage, isCritical = false) => {
 
 };
 
-const logException = (error,payload, isCritical = false) => {
+const logException = (e,payload, isCritical = false) => {
     if(graylog){
         if (process.env.NODE_ENV != "development") {
             if(isCritical)
                 graylog.critical(e.message, e.stack, payload, new Date());
             else
-                graylog.error(error, e.stack, payload, new Date());
+                graylog.error(e.message, e.stack, payload, new Date());
 
         }
     }else{
-        console.log("No Graylog", error, stack, additionalMessage, isCritical);
+        console.log("No Graylog", error, e.stack, payload, isCritical);
     }
 
 };
