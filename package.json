@@ -1,6 +1,6 @@
 {
   "name": "tm-utils",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "This is the accumulated reused functions for TM30 global",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,7 @@
     "graylog2": "^0.2.1",
     "jest": "^24.9.0",
     "jsonwebtoken": "^8.5.1",
+    "libphonenumber-js": "^1.7.53",
     "lodash": "^4.17.15"
   }
 }

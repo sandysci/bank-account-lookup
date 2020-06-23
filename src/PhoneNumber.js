@@ -1,16 +1,13 @@
 "use strict";
 const _ = require("lodash");
-
+const {parsePhoneNumberFromString} = require("libphonenumber-js");
 module.exports = {
-    format: (phoneNumber) => {
-        if(_.isEmpty(phoneNumber))
+    format: (phoneNumber, countryCode = "NG") => {
+        if (_.isEmpty(phoneNumber))
             return phoneNumber;
-
         phoneNumber = phoneNumber.toString().replace(/\D/g, "");
-        if (phoneNumber.startsWith("234"))
-            return phoneNumber;
-
-        phoneNumber = Number(phoneNumber.substr((phoneNumber.length - 10), phoneNumber.length));
-        return phoneNumber ? `234${phoneNumber}` : undefined;
-    }
+        if (!phoneNumber) return;
+        phoneNumber = parsePhoneNumberFromString(phoneNumber, countryCode || "NG");
+        return `${phoneNumber.countryCallingCode}${phoneNumber.nationalNumber}`;
+    },
 };

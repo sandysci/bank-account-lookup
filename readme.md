@@ -5,7 +5,7 @@ tm-utils - This is a utility package for reused component
 ## Installation
 ```json
 "dependencies": {
-  "tm-utils": "~0.1.12" // see the "releases" section
+  "tm-utils": "~0.1.13" // see the "releases" section
 }
 ```
 ```npm install tm-utils```
@@ -18,7 +18,7 @@ const utils = require('tm-utils');
 - To format a single phone number
 ```javascript
 let phoneNumber = "08012345678";
-phoneNumber = utils.formatPhoneNumber(phoneNumber);
+phoneNumber = utils.formatPhoneNumber(phoneNumber, "NG");
 console.log(phoneNumber); //2348012345678
 ```
 
@@ -26,7 +26,7 @@ console.log(phoneNumber); //2348012345678
 - To format am array of phone numbers
 ```javascript
 let phoneNumbers = ["08012345678", "08012345679"];
-phoneNumbers = utils.formatPhoneNumber(phoneNumbers);
+phoneNumbers = utils.formatPhoneNumber(phoneNumbers, "NG");
 console.log(phoneNumbers); //['2348012345678','2348012345679']
 ```
 
