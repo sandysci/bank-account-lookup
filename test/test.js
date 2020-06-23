@@ -19,7 +19,7 @@ describe('# Test Format Phone Number',  () => {
 
     it('should return an formatted phone number', function () {
         let phoneNumber = "08023457890";
-        phoneNumber = utils.formatPhoneNumber(phoneNumber);
+        phoneNumber = utils.formatPhoneNumber(phoneNumber, "NG");
         console.log("PhoneNumber", phoneNumber);
         expect(phoneNumber).toBe("2348023457890");
     });
