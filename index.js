@@ -2,19 +2,19 @@
 
 /**
  * This method formats a Nigerian Phone number
- * @param phoneNumber
+ * @param {string} phoneNumber
  * @return "+234xxxxxxxxx"|undefined|array
  */
-function formatPhoneNumber(phoneNumber){
+function formatPhoneNumber(phoneNumber, countryCode = "NG"){
     if(!phoneNumber)
         return undefined;
     //if phone number is empty return undefined
     if(Array.isArray(phoneNumber)){
         return phoneNumber.map(phone => {
-           return require("./src/PhoneNumber").format(phone);
+           return require("./src/PhoneNumber").format(phone, countryCode);
         });
     }else{
-        return require("./src/PhoneNumber").format(phoneNumber);
+        return require("./src/PhoneNumber").format(phoneNumber, countryCode);
     }
 }
 
