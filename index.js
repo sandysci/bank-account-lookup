@@ -7,7 +7,7 @@ const Joi = require("@hapi/joi");
  * @param schema
  * @param payload
  */
-exports.validate = (schema, payload) => {
+const validate = (schema, payload) => {
 
     schema = Joi.object(schema);
     const {error, value} = schema.validate( payload,{
@@ -40,5 +40,6 @@ exports.formatPhoneNumber = (phoneNumber) => {
 
 
 module.exports = {
-    Constants: require("./src/Constants")
+    Constants: require("./src/Constants"),
+    validate
 };
