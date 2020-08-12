@@ -1,6 +1,6 @@
 {
   "name": "tm-utils",
-  "version": "0.1.1",
+  "version": "0.1.13",
   "description": "This is the accumulated reused functions for TM30 global",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,6 @@
     "testEnvironment": "node"
   },
   "keywords": [
-    "audit",
     "tm-utils",
     "utils",
     "tm",
@@ -18,14 +17,17 @@
   ],
   "author": "TM30",
   "license": "ISC",
-  "devDependencies": {
-    "uuid": "^3.3.3"
-  },
   "dependencies": {
-    "@hapi/joi": "^16.1.8",
     "dotenv": "^8.1.0",
+    "graylog2": "^0.2.1",
     "jest": "^24.9.0",
+<<<<<<< HEAD
     "lodash": "^4.17.15",
     "tm-timestamp": "^1.0.0"
+=======
+    "jsonwebtoken": "^8.5.1",
+    "libphonenumber-js": "^1.7.53",
+    "lodash": "^4.17.15"
+>>>>>>> 3667f829eaa9549eda57551df74a4df298a90400
   }
 }

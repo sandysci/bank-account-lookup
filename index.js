@@ -37,9 +37,23 @@ exports.formatPhoneNumber = (phoneNumber) => {
     }
 };
 
+/**
+ * This method returns a banklist of possible banks with the account number
+ * @param accountNumber
+ * @return undefined|array
+ */
+exports.accountNumberLookup = (accountNumber) => {
+    //if accountnumber is empty return undefined
+    if(!accountNumber)
+        return undefined;
+    return require("./src/BankAccountLookUp").getAccountBanks(accountNumber);
+
+};
+
 
 
 module.exports = {
     Constants: require("./src/Constants"),
-    validate
+    validate,
+    accountNumberLookup
 };

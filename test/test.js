@@ -1,33 +1,7 @@
 "use strict";
 require("dotenv").config({});
-const Joi = require("@hapi/joi");
+
 const utils = require("../index");
-describe('# Test Validate data',  () => {
-    it('should return a validation error', function () {
-        const schema = {
-            name: Joi.string().required()
-        };
-
-        const validationResponse = utils.validate(schema, {});
-        expect(validationResponse).not.toBeNull();
-        console.log("validationResponse", validationResponse);
-    });
-
-
-    it('should return null - Validation passed', function () {
-        const schema = {
-            name: Joi.string().required()
-        };
-        const validationResponse = utils.validate(schema, {
-            name: "Name"
-        });
-        expect(validationResponse).toBeNull();
-        console.log("validationResponse", validationResponse);
-    });
-});
-
-
-
 describe('# Test Format Phone Number',  () => {
     it('should return undefined for incorrect or empty value', function () {
        let phoneNumber = undefined;
@@ -45,7 +19,7 @@ describe('# Test Format Phone Number',  () => {
 
     it('should return an formatted phone number', function () {
         let phoneNumber = "08023457890";
-        phoneNumber = utils.formatPhoneNumber(phoneNumber);
+        phoneNumber = utils.formatPhoneNumber(phoneNumber, "NG");
         console.log("PhoneNumber", phoneNumber);
         expect(phoneNumber).toBe("2348023457890");
     });
