@@ -1,37 +1,37 @@
 
 const banks = [
-    { name: "ACCESS BANK", code: "044" ,bankCode:"000014"},
-    { name: "CITIBANK", code: "023" ,bankCode:"000009"},
-    { name: "CORONATION MERCHANT BANK", code: "559",bankCode:"060001" },
-    { name: "COVENANT MICROFINANCE BANK", code: "551",bankCode:"070006" },
-    { name: "DIAMOND BANK", code: "063",bankCode:"000005" },
-    { name: "ECOBANK NIGERIA", code: "050",bankCode:"000010" },
-    { name: "ENTERPRISE BANK", code: "084",bankCode:"000019" },
-    { name: "E-TRANZACT", code: "306" ,bankCode:"100006"},
-    { name: "FBN M-MONEY", code: "309",bankCode:"060002" },
-    { name: "FIDELITY BANK", code: "070",bankCode:"000007" },
-    { name: "FIDELITY MOBILE", code: "318" ,bankCode:"100019"},
-    { name: "FINATRUST MICROFINANCE BANK", code: "608" ,bankCode:"090111"},
-    { name: "FIRST BANK OF NIGERIA", code: "011" ,bankCode:"000016"},
-    { name: "FIRST CITY MONUMENT BANK", code: "214" ,bankCode:"000003"},
-    { name: "FORTIS MICROFINANCE BANK", code: "501" ,bankCode:"070002"},
-    { name: "GUARANTY TRUST BANK", code: "058",bankCode:"000013" },
-    { name: "HERITAGE BANK", code: "030",bankCode:"000020"  },
-    { name: "JAIZ BANK", code: "301",bankCode:"000006"  },
-    { name: "KEYSTONE BANK", code: "082",bankCode:"000002"  },
-    { name: "PROVIDUS BANK", code: "101",bankCode:"000023"  },
-    { name: "PAGA", code: "327",bankCode:"100002"  },
-    { name: "PARALLEX", code: "502",bankCode:"090004"  },
-    { name: "POLARIS BANK", code: "076" ,bankCode:"000008" },
-    { name: "STANBIC IBTC BANK", code: "221" ,bankCode:"000012" },
-    { name: "STANDARD CHARTERED BANK", code: "068",bankCode:"000021"  },
-    { name: "STERLING BANK", code: "232",bankCode:"000001"  },
-    { name: "SUNTRUST", code: "100",bankCode:"000022"  },
-    { name: "UNION BANK OF NIGERIA", code: "032",bankCode:"000018"  },
-    { name: "UNITED BANK FOR AFRICA", code: "033" ,bankCode:"000004" },
-    { name: "UNITY BANK", code: "215" ,bankCode:"000011" },
-    { name: "WEMA BANK", code: "035" ,bankCode:"000017" },
-    { name: "ZENITH BANK", code: "057" ,bankCode:"000015" }
+    { bankName: "ACCESS BANK", code: "044" ,bankCode:"000014"},
+    { bankName: "CITIBANK", code: "023" ,bankCode:"000009"},
+    { bankName: "CORONATION MERCHANT BANK", code: "559",bankCode:"060001" },
+    { bankName: "COVENANT MICROFINANCE BANK", code: "551",bankCode:"070006" },
+    { bankName: "DIAMOND BANK", code: "063",bankCode:"000005" },
+    { bankName: "ECOBANK NIGERIA", code: "050",bankCode:"000010" },
+    { bankName: "ENTERPRISE BANK", code: "084",bankCode:"000019" },
+    { bankName: "E-TRANZACT", code: "306" ,bankCode:"100006"},
+    { bankName: "FBN M-MONEY", code: "309",bankCode:"060002" },
+    { bankName: "FIDELITY BANK", code: "070",bankCode:"000007" },
+    { bankName: "FIDELITY MOBILE", code: "318" ,bankCode:"100019"},
+    { bankName: "FINATRUST MICROFINANCE BANK", code: "608" ,bankCode:"090111"},
+    { bankName: "FIRST BANK OF NIGERIA", code: "011" ,bankCode:"000016"},
+    { bankName: "FIRST CITY MONUMENT BANK", code: "214" ,bankCode:"000003"},
+    { bankName: "FORTIS MICROFINANCE BANK", code: "501" ,bankCode:"070002"},
+    { bankName: "GUARANTY TRUST BANK", code: "058",bankCode:"000013" },
+    { bankName: "HERITAGE BANK", code: "030",bankCode:"000020"  },
+    { bankName: "JAIZ BANK", code: "301",bankCode:"000006"  },
+    { bankName: "KEYSTONE BANK", code: "082",bankCode:"000002"  },
+    { bankName: "PROVIDUS BANK", code: "101",bankCode:"000023"  },
+    { bankName: "PAGA", code: "327",bankCode:"100002"  },
+    { bankName: "PARALLEX", code: "502",bankCode:"090004"  },
+    { bankName: "POLARIS BANK", code: "076" ,bankCode:"000008" },
+    { bankName: "STANBIC IBTC BANK", code: "221" ,bankCode:"000012" },
+    { bankName: "STANDARD CHARTERED BANK", code: "068",bankCode:"000021"  },
+    { bankName: "STERLING BANK", code: "232",bankCode:"000001"  },
+    { bankName: "SUNTRUST", code: "100",bankCode:"000022"  },
+    { bankName: "UNION BANK OF NIGERIA", code: "032",bankCode:"000018"  },
+    { bankName: "UNITED BANK FOR AFRICA", code: "033" ,bankCode:"000004" },
+    { bankName: "UNITY BANK", code: "215" ,bankCode:"000011" },
+    { bankName: "WEMA BANK", code: "035" ,bankCode:"000017" },
+    { bankName: "ZENITH BANK", code: "057" ,bankCode:"000015" }
 
 
 ];
@@ -48,6 +48,7 @@ module.exports = {
 
         banks.forEach((item, index) => {
             if (isBankAccountValid(accountNumber, item.code)) {
+                item.bankId = index;
                 accountBanks.push(item);
             }
         });

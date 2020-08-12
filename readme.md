@@ -5,7 +5,7 @@ tm-utils - This is a utility package for reused component
 ## Installation
 ```json
 "dependencies": {
-  "tm-utils": "~0.1.16" // see the "releases" section
+  "tm-utils": "~0.1.17" // see the "releases" section
 }
 ```
 ```npm install tm-utils```
@@ -35,7 +35,7 @@ console.log(phoneNumbers); //['2348012345678','2348012345679']
 ```javascript
 let accountnumber = "0005516510";
 let banklist = utils.accountNumberLookup(accountnumber);
-console.log(banklist); //[{ name: 'DIAMOND BANK', code: '063', bankCode: '000005' },    { name: 'HERITAGE BANK', code: '030', bankCode: '000020' },{ name: 'PARALLEX', code: '502', bankCode: '090004' }] 
+console.log(banklist); // [{ bankName: 'DIAMOND BANK',code: '063', bankCode: '000005', bankId: 4 }, { bankName: 'PARALLEX', code: '502', bankCode: '090004', bankId: 21 ] 
 ```
 
 ### Tests
