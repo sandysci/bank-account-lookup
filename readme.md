@@ -23,13 +23,20 @@ console.log(phoneNumber); //2348012345678
 ```
 
 ### Phone Number Formatter (Multiple)
-- To format am array of phone numbers
+- To format an array of phone numbers
 ```javascript
 let phoneNumbers = ["08012345678", "08012345679"];
 phoneNumbers = utils.formatPhoneNumber(phoneNumbers, "NG");
 console.log(phoneNumbers); //['2348012345678','2348012345679']
 ```
 
+### Bank Account LookUp 
+- To get Bank List Suggestion for an account number
+```javascript
+let accountnumber = "0005516510";
+let banklist = utils.accountNumberLookup(accountnumber);
+console.log(banklist); //[{ name: 'DIAMOND BANK', code: '063', bankCode: '000005' },    { name: 'HERITAGE BANK', code: '030', bankCode: '000020' },{ name: 'PARALLEX', code: '502', bankCode: '090004' }] 
+```
 
 ### Tests
 #### Cli
@@ -41,3 +48,4 @@ npm test
 #### Contributors
 
 - [Micheal Akinwonmi](https://github.com/blackhades)
+- [Ezeibe Sandra](https://github.com/sandysci)

@@ -51,7 +51,7 @@ module.exports = {
                 accountBanks.push(item);
             }
         });
-        return {data:accountBanks };
+        return accountBanks ;
 
     },
     createAccountWithSerial: (bankCode) => {
@@ -76,21 +76,21 @@ module.exports = {
                 bankCode,
                 bank
             };
-            return {data : account}
+            return  account;
 
         } catch (err) {
-            return {error : error}
+            return err;
         }
     }
 };
 
 const generateCheckDigit = (serialNumber, bankCode) => {
-    if (serialNumber.length > serialNumLength) {
+    if (serialNumber.length > SERIALNUMLENGTH) {
 
-        return { error:  `Serial number should be at most ${serialNumLength}-digits long.`}
+        return { error:  `Serial number should be at most ${SERIALNUMLENGTH}-digits long.`}
 
     }
-    serialNumber = serialNumber.padStart(serialNumLength, "0");
+    serialNumber = serialNumber.padStart(SERIALNUMLENGTH, "0");
     let cipher = bankCode + serialNumber;
 
     let sum = 0;
