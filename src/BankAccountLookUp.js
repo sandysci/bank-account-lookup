@@ -36,9 +36,9 @@ const banks = [
 
 ];
 
-const seed = "373373373373";
-const nubanLength = 10;
-const serialNumLength = 9;
+const SEED = "373373373373";
+const NUNBANLENGTH = 10;
+const SERIALNUMLENGTH = 9;
 let error;
 
 module.exports = {
@@ -64,7 +64,7 @@ module.exports = {
         }
 
         try {
-            let serialNumber = req.body.serialNumber.padStart(serialNumLength, "0");
+            let serialNumber = req.body.serialNumber.padStart(SERIALNUMLENGTH, "0");
             let nuban = `${serialNumber}${generateCheckDigit(
                 serialNumber,
                 bankCode
@@ -97,7 +97,7 @@ const generateCheckDigit = (serialNumber, bankCode) => {
 
     // Step 1. Calculate A*3+B*7+C*3+D*3+E*7+F*3+G*3+H*7+I*3+J*3+K*7+L*3
     cipher.split("").forEach((item, index) => {
-        sum += item * seed[index];
+        sum += item * SEED[index];
     });
 
     // Step 2: Calculate Modulo 10 of your result i.e. the remainder after dividing by 10
@@ -122,8 +122,8 @@ const generateCheckDigit = (serialNumber, bankCode) => {
  * @param {*} bankCode
  */
 const isBankAccountValid = (accountNumber, bankCode) => {
-    if (!accountNumber || accountNumber.length != nubanLength) {
-        error = "NUBAN must be %s digits long" % nubanLength;
+    if (!accountNumber || accountNumber.length != NUNBANLENGTH) {
+        error = "NUBAN must be %s digits long" % NUNBANLENGTH;
         return false;
     }
 
