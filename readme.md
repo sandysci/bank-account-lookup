@@ -5,7 +5,7 @@ tm-utils - This is a utility package for reused component
 ## Installation
 ```json
 "dependencies": {
-  "tm-utils": "~0.1.14" // see the "releases" section
+  "tm-utils": "~0.1.15" // see the "releases" section
 }
 ```
 ```npm install tm-utils```
