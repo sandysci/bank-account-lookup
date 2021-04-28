@@ -1,7 +1,7 @@
 {
-  "name": "tm-utils",
+  "name": "qos-back-account-lookup",
   "version": "0.1.18",
-  "description": "This is the accumulated reused functions for TM30 global",
+  "description": "This is a package to search for possible bank names for bank account or nuban",
   "main": "index.js",
   "scripts": {
     "test": "jest --watchAll --verbose --env=node"
@@ -10,12 +10,13 @@
     "testEnvironment": "node"
   },
   "keywords": [
-    "tm-utils",
-    "utils",
-    "tm",
-    "tm30"
+    "bank",
+    "account number lookup",
+    "bank-account",
+    "Account",
+    "nuban"
   ],
-  "author": "TM30",
+  "author": "Ezeibe Sandra Chioma",
   "license": "ISC",
   "dependencies": {
     "@hapi/joi": "^17.1.1",

@@ -1,34 +1,19 @@
 tm-utils
 ===========
-tm-utils - This is a utility package for reused component
+bank-account-lookup - This is a utility package to search for possible banknames for an account number
 
 ## Installation
 ```json
 "dependencies": {
-  "tm-utils": "~0.1.18" // see the "releases" section
+  "qos-back-account-lookup": "~0.1.18" // see the "releases" section
 }
 ```
 ```npm install tm-utils```
 ## Requirements
 ```javascript
-const utils = require('tm-utils');
+const utils = require('qos-back-account-lookup');
 ```
 
-### Phone Number Formatter (Single)
-- To format a single phone number
-```javascript
-let phoneNumber = "08012345678";
-phoneNumber = utils.formatPhoneNumber(phoneNumber, "NG");
-console.log(phoneNumber); //2348012345678
-```
-
-### Phone Number Formatter (Multiple)
-- To format an array of phone numbers
-```javascript
-let phoneNumbers = ["08012345678", "08012345679"];
-phoneNumbers = utils.formatPhoneNumber(phoneNumbers, "NG");
-console.log(phoneNumbers); //['2348012345678','2348012345679']
-```
 
 ### Bank Account LookUp 
 - To get Bank List Suggestion for an account number
@@ -47,5 +32,5 @@ npm test
 
 #### Contributors
 
-- [Micheal Akinwonmi](https://github.com/blackhades)
 - [Ezeibe Sandra](https://github.com/sandysci)
+- [Ezeibe Sandra](https://queenofcodes.herokuapp.com/)

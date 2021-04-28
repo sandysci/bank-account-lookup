@@ -10,7 +10,7 @@ describe('# Test for possible banks for an account number',  () => {
         console.log("Banklist",accountNumberLookup);
         expect(accountNumber).toBeUndefined();
     });
-    it('should return Array of banklist for a valid acount number ', function () {
+    it('should return Array of banklist for a valid account number ', function () {
         let accountNumber = "0005516510";
         let accountNumberLookup = utils.accountNumberLookup(accountNumber);
         console.log("Banklist",accountNumberLookup,typeof(accountNumberLookup));
