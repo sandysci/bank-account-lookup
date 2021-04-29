@@ -1,17 +1,17 @@
-tm-utils
+bank-account-lookup
 ===========
 bank-account-lookup - This is a utility package to search for possible banknames for an account number
 
 ## Installation
 ```json
 "dependencies": {
-  "qos-back-account-lookup": "~0.1.18" // see the "releases" section
+  "bank-account-lookup": "~0.1.19" // see the "releases" section
 }
 ```
-```npm install tm-utils```
+```npm install bank-account-lookup```
 ## Requirements
 ```javascript
-const utils = require('qos-back-account-lookup');
+const utils = require('bank-account-lookup');
 ```
 
 
